@@ -1,0 +1,29 @@
+{
+  "name": "react-masonry-infinite-scroll",
+  "version": "1.0.0",
+  "description": "Masonry Layout with Infinite Scroll",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kurumkan/react-masonry-infinite-scroll.git"
+  },
+  "keywords": [
+    "masonry",
+    "masonry-layout",
+    "react",
+    "infinite",
+    "scroll"
+  ],
+  "author": "kurumkan <joomrise@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kurumkan/react-masonry-infinite-scroll/issues"
+  },
+  "homepage": "https://github.com/kurumkan/react-masonry-infinite-scroll#readme",
+  "dependencies": {
+    "react": "^16.0.0"
+  }
+}
