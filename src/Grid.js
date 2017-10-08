@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Grid.css';
 
 class Grid extends Component {
   constructor(props) {
@@ -89,7 +88,7 @@ class Grid extends Component {
 
   render() {
     return (
-      <div className="grid">
+      <div style={{position: 'relative'}}>
         {this.props.children}
       </div>
     );

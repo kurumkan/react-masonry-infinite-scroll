@@ -1,7 +1,7 @@
-import Grid from './components/Grid';
-import GridItem from './components/GridItem';
+import Grid from './Grid';
+import GridItem from './GridItem';
 
-export default {
+module.exports = {
   Grid,
   GridItem
 };

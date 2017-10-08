@@ -1,6 +1,6 @@
 {
   "name": "react-masonry-infinite-scroll",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "description": "Masonry Layout with Infinite Scroll",
   "main": "lib/index.js",
   "scripts": {
