@@ -1,9 +1,7 @@
 import React from 'react';
 
 const GridItem = ({ children }) => (
-  <div style={{
-    position: 'absolute'
-  }}>
+  <div className="grid-item" style={{position: 'absolute'}}>
     {children}
   </div>
 );
