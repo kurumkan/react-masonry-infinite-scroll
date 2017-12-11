@@ -42,7 +42,7 @@ renderGrid() {
 	return (
     	this.props.images(img => (
         	<GridItem>
-                <img src={ img } />
+                <img src={ img }  onLoad={ this.context.imageLoaded } />
             </GridItem>
         ))
     );

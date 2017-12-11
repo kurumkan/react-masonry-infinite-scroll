@@ -8,10 +8,12 @@ class Grid extends Component {
       offset: 0
     };
     this.shouldCall = true;
+    this.count = 0;
 
     this.loadMore = this.loadMore.bind(this);
     this.renderGrid = this.renderGrid.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.imageLoaded = this.imageLoaded.bind(this);
   }
 
   componentDidMount() {
@@ -20,7 +22,17 @@ class Grid extends Component {
     window.addEventListener("scroll", this.handleScroll);
   }
 
+  imageLoaded() {
+    const gridItemsCount = document.getElementsByClassName('grid-item').length;
+    this.count++;
+    if(gridItemsCount === this.count) {
+      this.renderGrid();
+    }
+  }
+
   renderGrid() {
+    // we need to call renderGrid() only after all the images on the current page are loaded
+
     const { gutter = 0, fitWidth = false, columnWidth = 100 } = this.props;
 
     // checking the props:
@@ -68,8 +80,8 @@ class Grid extends Component {
 
     const scrolled = scrollTop % windowHeight + document.documentElement.scrollHeight;
     if(scrolled > windowHeight - this.props.scrollThreshold &&
-       this.shouldCall &&
-       this.props.itemsLeft
+      this.shouldCall &&
+      this.props.itemsLeft
     ) {
       this.loadMore();
     } else {
@@ -82,8 +94,11 @@ class Grid extends Component {
     this.setState({
       offset: this.state.offset + this.props.limit
     });
-    setTimeout(this.renderGrid, 100);
     this.shouldCall = false;
+  }
+
+  getChildContext() {
+    return { imageLoaded: this.imageLoaded };
   }
 
   render() {
@@ -113,6 +128,10 @@ Grid.defaultProps = {
   itemsLeft: 0,
   limit: 1,
   scrollThreshold: 300
+};
+
+Grid.childContextTypes = {
+  imageLoaded: PropTypes.func
 };
 
 export default Grid;
