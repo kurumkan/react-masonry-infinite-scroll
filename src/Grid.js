@@ -25,8 +25,10 @@ class Grid extends Component {
   imageLoaded() {
     const gridItemsCount = document.getElementsByClassName('grid-item').length;
     this.count++;
+
     if(gridItemsCount === this.count) {
       this.renderGrid();
+      this.props.notifyReadyState();
     }
   }
 
@@ -97,8 +99,10 @@ class Grid extends Component {
     this.shouldCall = false;
   }
 
+
   getChildContext() {
-    return { imageLoaded: this.imageLoaded };
+    const { imageLoaded } = this;
+    return { imageLoaded };
   }
 
   render() {
