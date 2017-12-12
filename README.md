@@ -21,8 +21,13 @@ import { Grid, GridItem } from 'react-masonry-infinite-scroll';
 
 ...
 
+notifyReadyState() {
+  console.log('Grid is ready!');
+}
+
 render() {
 	return (
+
    		<Grid
           columnWidth={260}
           fitWidth={true}
@@ -31,6 +36,7 @@ render() {
           limit={6}
           scrollThreshold={400}
           itemsLeft={this.props.itemsLeft}
+          notifyReadyState={this.notifyReadyState}
         >
 			{ this.renderGrid() }
 		</Grid>
